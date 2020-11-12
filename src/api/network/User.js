@@ -1,5 +1,4 @@
 import {get, post} from "@/util/axios";
-import {getUserID} from "@/api/local/Me";
 
 
 function getUserDetail(id) {
@@ -27,9 +26,9 @@ function getUserDetailCount() {
     return get("/user/subcount");
 }
 
-function getUserRecentWeekPlayRecord() {
+function getUserRecentWeekPlayRecord(id) {
     return get("/user/record",{
-        uid:getUserID(),
+        uid:id,
         type:1
     });
 }

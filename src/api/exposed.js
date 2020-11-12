@@ -8,20 +8,20 @@ async function getSong(id) {
     let song={};
 
     let response = await checkMusic(id);
-    if(!response.data.success){
+    if(!response.success){
         //createError(response.data.message);
         return null;
     }
 
     let res = await getSongDetailData(id);
-    let data = res.data.songs[0];
+    let data = res.songs[0];
     song.id = data.id;
     song.name = data.name;
     song.author = data.ar[0].name;
     song.totaltime = formatSongDuration(data.dt);
     song.pic = data.al.picUrl;
     let res_url = await getSongURL(id);
-    song.src = res_url.data.data[0].url;
+    song.src = res_url.data[0].url;
 
     return song;
 }

@@ -4,11 +4,6 @@ import * as moment from "moment";
 function setNewPlayRecord(list) {
     localStorage.setItem("localPlayRecord",JSON.stringify(list));
 }
-function setUserPlayList(id,list,sublist) {
-    localStorage.setItem("userLikePlayListID",JSON.stringify(id));
-    localStorage.setItem("playList",JSON.stringify(list));
-    localStorage.setItem("subscribedPlayList",JSON.stringify(sublist))
-}
 
 function getPlayRecord() {
     if(!localStorage.getItem("localPlayRecord")) {
@@ -97,6 +92,5 @@ export {
     getFirstSong,
     getNextSong,
     getPrevSong,
-    setUserPlayList
 }
 

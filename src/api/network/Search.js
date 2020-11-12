@@ -1,4 +1,4 @@
-import { get } from "../../util/axios";
+import { get } from "@/util/axios";
 
 function getHotSearch() {
    return get("/search/hot/detail");
@@ -11,9 +11,9 @@ function Search(keyword,type,limit=30) {
        limit
    });
 }
-function searchSuggest(keyword) {
+function searchSuggest(keywords) {
   return get("/search/suggest",{
-      keyword
+      keywords
   });
 }
 

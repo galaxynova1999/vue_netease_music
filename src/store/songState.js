@@ -1,11 +1,16 @@
+import {calcSecond} from "@/util/convenience";
+import {PAUSE, PLAYING, WAITING} from "@/util/constant";
+import {addNewSong} from "@/api/local/localPlayRecord";
+import {getSong} from "@/api/exposed";
+
 const state = () => ({
     id: "431085465",
-    name: "Graduate",
+    name: "",
     author: "",
     pic: "",
     totalTime: "",
     src: "",
-    playStatus: 'waiting',
+    playStatus: WAITING,
     lyric: "",
     comments: {
         hotComments:[],
@@ -13,36 +18,56 @@ const state = () => ({
     },
     totalSecond: 0,
     currentIndexInPlayList : 0,
-})
+});
 
-// getters
-const getters = {}
-
-// actions
 const actions = {
-    getAllProducts ({ commit }) {
-        shop.getProducts(products => {
-            commit('setProducts', products)
+    getSong({ commit },payload) {
+        getSong(payload).then((res) => {
+            commit('changeSong',res);
         })
     }
 }
-
-// mutations
 const mutations = {
-    setProducts (state, products) {
-        state.all = products
+    changeSong(state,newSong) {
+        if(newSong === null)
+            return;
+        state.id = newSong.id;
+        state.name = newSong.name;
+        state.author = newSong.author;
+        state.pic = newSong.pic;
+        state.totalTime = newSong.totaltime;
+        state.src = newSong.src;
+        state.playStatus = WAITING;
+        state.totalSecond = calcSecond(newSong.totaltime);
+        let song = {
+            id:newSong.id,
+            name:newSong.name
+        }
+        this.currentIndexInPlayList = addNewSong(song);
     },
 
-    decrementProductInventory (state, { id }) {
-        const product = state.all.find(product => product.id === id)
-        product.inventory--
+
+    changeStatus(state,status) {
+        state.playStatus = status;
+    },
+
+
+    changePlayStatusToPause(state) {
+        state.playStatus = PAUSE;
+    },
+
+    changePlayStatusToPlaying(state) {
+        state.playStatus = PLAYING;
+    },
+
+    changePlayStatusToWaiting(state) {
+        state.playStatus = WAITING;
     }
 }
 
 export default {
-    namespaced: true,
+    namespaced:true,
     state,
-    getters,
     actions,
     mutations
 }

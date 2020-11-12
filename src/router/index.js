@@ -1,20 +1,23 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import App from "@/App";
+import Discovery from '@/views/discovery'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path:'/',
-    component:App,
-    children:[
-      {
-        path:'/discovery',
-        component:App
-      }
-    ]
-  }
+    path: "/",
+    redirect:'/discovery'
+  },
+  {
+    path:'/discovery',
+    component:Discovery
+  },
+  {
+    path: '/playlist/:type/:id',
+    component: () => import('@/views/playlist'),
+  },
+
 ]
 
 const router = new VueRouter({

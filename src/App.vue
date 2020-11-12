@@ -1,32 +1,15 @@
 <template>
-  <v-app>
-    <div class="top">
-      <Header/>
-    </div>
-    <div class="content">
-      <div class="left">
-       <LeftSide/>
-      </div>
-      <div class="right">
-         <router-view/>
-      </div>
-    </div>
-    <div class="bottom">
-        <Footer/>
-    </div>
-  </v-app>
+  <Home/>
 </template>
 
-<style >
+<style scoped>
 
 </style>
 <script>
-import Header from "@/components/header/index";
-import LeftSide from "@/components/sider/index";
-import Footer from "@/components/footer/index";
-import {initialLocalData} from "@/api/exposed";
+import { initialLocalData } from "@/api/exposed";
+import Home from '@/views'
 export default {
-  components: {Footer, LeftSide, Header},
+  components: {Home},
   created() {
     initialLocalData();
   }

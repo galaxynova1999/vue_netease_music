@@ -1,13 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
 import vuetify from './plugins/vuetify';
-import VueRouter from "vue-router";
 import router from './router'
-import store from '@/plugins/vuex';
+import store from './store';
+import _ from 'lodash';
+import { createPicURL } from '@/util/convenience'
 
 Vue.config.productionTip = false;
+Vue.prototype._ = _;
+Vue.prototype.$pic = createPicURL;
 
-Vue.use(VueRouter);
 new Vue({
   vuetify,
   router,

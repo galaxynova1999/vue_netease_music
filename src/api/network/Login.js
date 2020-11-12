@@ -1,6 +1,5 @@
 import { post } from "@/util/axios";
-import { clearUser } from "../local/Me"
-import { clearUserPlayList } from "../local/userPlayRecord";
+import { clearUserRecentPlayList} from "../local/userPlayRecord";
 
 function LoginByPhone(phone,pwd) {
    return post("/login/cellphone",{
@@ -19,9 +18,9 @@ function LoginByMail(email,pwd) {
 
 
 function LogOut() {
-    post("/logout").then(function () {
+    return post("/logout").then(function () {
         clearUser();
-        clearUserPlayList();
+        clearUserRecentPlayList();
         //LoginState.changeState(false);
         //userPlayList.updatePlayList(null,null);
     });

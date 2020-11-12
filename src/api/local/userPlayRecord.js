@@ -1,18 +1,19 @@
-function setUserPlayList(weekdata) {
+//存放用户最近一周的播放记录 -来自服务器
+function setUserRecentPlayList(weekdata) {
   localStorage.setItem("userPlayRecord",JSON.stringify(weekdata));
 }
 
-function getUserPlayList() {
+function getUserRecentPlayList() {
   return JSON.parse(localStorage.getItem("userPlayRecord"));
 }
 
-function clearUserPlayList() {
+function clearUserRecentPlayList() {
     localStorage.setItem("userPlayRecord",null);
 }
 
 
 export {
-    getUserPlayList,
-    setUserPlayList,
-    clearUserPlayList
+    getUserRecentPlayList,
+    setUserRecentPlayList,
+    clearUserRecentPlayList
 }

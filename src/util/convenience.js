@@ -36,9 +36,12 @@ function calcSecond(time) {
     let second = parseInt(array[1]);
     return minute * 60 + second;
 }
-
+function createPicURL(src,x,y) {
+    return `${src}?param=${x}y${y}`;
+}
 export {
     bytesToSize,
     formatSongDuration,
-    calcSecond
+    calcSecond,
+    createPicURL
 }
