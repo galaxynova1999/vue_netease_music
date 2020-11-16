@@ -4,7 +4,7 @@ import {addNewSong} from "@/api/local/localPlayRecord";
 import {getSong} from "@/api/exposed";
 
 const state = () => ({
-    id: "431085465",
+    id: "",
     name: "",
     author: "",
     pic: "",
@@ -45,12 +45,6 @@ const mutations = {
         }
         this.currentIndexInPlayList = addNewSong(song);
     },
-
-
-    changeStatus(state,status) {
-        state.playStatus = status;
-    },
-
 
     changePlayStatusToPause(state) {
         state.playStatus = PAUSE;

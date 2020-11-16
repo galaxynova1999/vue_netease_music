@@ -110,7 +110,7 @@ export default {
        userLikePlayListID:state => state.userLikePlayListID,
        playList:state => state.playList,
        subscribedPlayList:state => state.subscribedPlayList
-     })
+     }),
    },
   methods:{
 
@@ -121,7 +121,7 @@ export default {
 <style scoped>
 
  .active-link {
-   background-color: azure;
+   background-color: #f1cbcb;
    transition-property: background-color;
    transition-timing-function: ease;
  }

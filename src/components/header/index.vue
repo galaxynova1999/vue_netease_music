@@ -28,7 +28,7 @@
              <template v-slot:activator="{ on }">
                <v-avatar>
                  <v-img
-                     :src="$pic(avatar,50,50)"
+                     :src="createPicURL(avatar,50,50)"
                      style="cursor: pointer"
                      v-on="on"
                  />

@@ -43,5 +43,4 @@ export {
     bytesToSize,
     formatSongDuration,
     calcSecond,
-    createPicURL
 }
