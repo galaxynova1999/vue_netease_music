@@ -1,18 +1,18 @@
 <template>
   <v-app>
     <div class="top">
-      <Header/>
+      <Header />
     </div>
     <div class="content">
       <div class="left">
-        <LeftSide/>
+        <LeftSide />
       </div>
       <div class="right">
-        <router-view/>
+        <router-view />
       </div>
     </div>
     <div class="bottom">
-      <Footer/>
+      <Footer />
     </div>
   </v-app>
 </template>
@@ -23,13 +23,13 @@ import LeftSide from "@/components/sider/index";
 import Footer from "@/components/footer/index";
 export default {
   name: "Home",
-  components: {Footer, LeftSide, Header},
-}
+  components: { Footer, LeftSide, Header },
+};
 </script>
 
 <style scoped>
 .top {
-  z-index: 0!important;
+  z-index: 0 !important;
   width: 100%;
   height: 64px;
 }

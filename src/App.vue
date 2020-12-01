@@ -1,17 +1,15 @@
 <template>
-  <Home/>
+  <Home />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
 <script>
 import { initialLocalData } from "@/api/exposed";
-import Home from '@/views'
+import Home from "@/views";
 export default {
-  components: {Home},
+  components: { Home },
   created() {
     initialLocalData();
-  }
-}
+  },
+};
 </script>

@@ -1,16 +1,15 @@
 const state = () => ({
-    isLogin:false
-})
-
+  isLogin: false,
+});
 
 const mutations = {
-    changeLoginState (state, newState) {
-        state.isLogin = newState;
-    }
-}
+  changeLoginState(state, newState) {
+    state.isLogin = newState;
+  },
+};
 
 export default {
-    namespaced:true,
-    state,
-    mutations
-}
+  namespaced: true,
+  state,
+  mutations,
+};

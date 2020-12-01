@@ -1,28 +1,27 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import Discovery from '@/views/discovery'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Discovery from "@/views/discovery";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    redirect:'/discovery'
+    redirect: "/discovery",
   },
   {
-    path:'/discovery',
-    component:Discovery
+    path: "/discovery",
+    component: Discovery,
   },
   {
-    path: '/playlist/:type/:id',
-    component: () => import('@/views/playlist'),
+    path: "/playlist/:type/:id",
+    component: () => import("@/views/playlist"),
   },
-
-]
+];
 
 const router = new VueRouter({
-  mode:'history',
-  routes
-})
+  mode: "history",
+  routes,
+});
 
-export default router
+export default router;
