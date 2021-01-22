@@ -21,7 +21,8 @@ const mutations = {
     let playList = [];
     let subscribedPlayList = [];
     playlist.slice(1).forEach((item) => {
-      if (item.subscribed) {
+      const { subscribed } = item;
+      if (subscribed) {
         subscribedPlayList.push(item);
       } else {
         playList.push(item);
@@ -38,10 +39,13 @@ const mutations = {
       state.avatar = null;
       return;
     }
-    state.userID = data.account.id;
-    state.username = data.account.userName;
-    state.nickname = data.profile.nickname;
-    state.avatar = data.profile.avatarUrl;
+    const { account,profile } = data;
+    const { id, userName } = account;
+    const { nickname, avatarUrl } = profile;
+    state.userID = id;
+    state.username = userName;
+    state.nickname = nickname;
+    state.avatar = avatarUrl;
   },
 };
 

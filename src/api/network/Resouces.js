@@ -1,4 +1,4 @@
-import { get, post } from "../../util/axios";
+import { post } from "../../util/axios";
 
 //type:
 // 1: mv

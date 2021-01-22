@@ -141,21 +141,24 @@ export default {
       }
       LoginByPhone(this.phone, this.password)
         .then((response) => {
-          if (response.cookie) {
+          const { cookie, account } = response;
+          if (cookie) {
             this.updateProfile(response);
-            const { id } = response.account;
+            const { id } = account;
             Promise.all([
               getUserPlayList(id),
               getUserRecentWeekPlayRecord(id),
-            ]).then(([playListData, playRecordData]) => {
+            ]).then(([playListData, { weekData }]) => {
               this.updatePlayList(playListData);
-              setUserRecentPlayList(playRecordData.weekData);
+              setUserRecentPlayList(weekData);
               this.changeLoginState(true);
               this.loginFormOpen = false;
             });
           }
         })
-        .catch((err) => {});
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
 };
